@@ -101,7 +101,7 @@ async def show_menu(message: types.Message):
 async def login_an_up_ads(message: types.Message):
     users = await db.diesel_select_user(user_id=message.from_user.id)
     if users != None:
-        browser = webdriver.Chrome(r'C:\Users\user\Downloads/chromedriver.exe')
+        browser = webdriver.Chrome('../chromedriver/chromedriver.exe')
         await message.answer(text="Выполняется вход в дизель...")
         diesel_upper.sing_in(username=users.username, password=users.password, browser=browser)
         diesel_upper.count_ads_user(browser)
@@ -180,7 +180,7 @@ async def answer_q2(message: types.Message, state: FSMContext):
         if True:
             try:
                 await message.answer(text="Выполняется вход в дизель...")
-                browser = webdriver.Chrome(r'C:\Users\user\Downloads/chromedriver.exe')
+                browser = webdriver.Chrome('../chromedriver/chromedriver.exe')
                 diesel_upper.sing_in(username=answer_1, password=answer_2, browser=browser)
                 if diesel_upper.sing_in_check(browser) == True:
                     diesel_upper.count_ads_user(browser=browser)
@@ -239,7 +239,7 @@ async def answer_q2(message: types.Message, state: FSMContext):
         if True:
             try:
                 await message.answer(text="Выполняется вход в дизель...")
-                browser = webdriver.Chrome(r'C:\Users\user\Downloads/chromedriver.exe')
+                browser = webdriver.Chrome('../chromedriver/chromedriver.exe')
                 diesel_upper.sing_in(username=answer_1, password=answer_2, browser=browser)
                 time.sleep(5)
                 if diesel_upper.sing_in_check(browser) == True:
